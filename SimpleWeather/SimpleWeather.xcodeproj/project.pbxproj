@@ -108,6 +108,8 @@
 		291745961B4428E700465298 /* SimpleWeather */ = {
 			isa = PBXGroup;
 			children = (
+				294361FF1B48C4EE00CC9BE3 /* Model */,
+				294361FE1B48C4D400CC9BE3 /* Controller */,
 				2917459B1B4428E700465298 /* AppDelegate.h */,
 				2917459C1B4428E700465298 /* AppDelegate.m */,
 				2917459E1B4428E700465298 /* ViewController.h */,
@@ -116,8 +118,6 @@
 				291745A41B4428E700465298 /* Images.xcassets */,
 				291745A61B4428E700465298 /* LaunchScreen.xib */,
 				291745971B4428E700465298 /* Supporting Files */,
-				297AD9741B44347B00749E88 /* WXController.h */,
-				297AD9751B44347B00749E88 /* WXController.m */,
 			);
 			path = SimpleWeather;
 			sourceTree = "<group>";
@@ -146,6 +146,22 @@
 				291745B21B4428E700465298 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		294361FE1B48C4D400CC9BE3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				297AD9741B44347B00749E88 /* WXController.h */,
+				297AD9751B44347B00749E88 /* WXController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		294361FF1B48C4EE00CC9BE3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
