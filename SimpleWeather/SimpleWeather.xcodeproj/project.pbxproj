@@ -15,6 +15,10 @@
 		291745A81B4428E700465298 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291745A61B4428E700465298 /* LaunchScreen.xib */; };
 		291745B41B4428E700465298 /* SimpleWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 291745B31B4428E700465298 /* SimpleWeatherTests.m */; };
 		297AD9761B44347B00749E88 /* WXController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297AD9751B44347B00749E88 /* WXController.m */; };
+		29963DA51B48D0AE00EAF4AC /* WXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29963DA41B48D0AE00EAF4AC /* WXManager.m */; };
+		29963DA81B48D22E00EAF4AC /* WXCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 29963DA71B48D22E00EAF4AC /* WXCondition.m */; };
+		29963DAB1B48D25000EAF4AC /* WXDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 29963DAA1B48D25000EAF4AC /* WXDailyForecast.m */; };
+		29D3D9301B4A1ACD00179956 /* WXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D3D92F1B4A1ACD00179956 /* WXClient.m */; };
 		C792213B170A7102BE33B5EC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F499F117ACFB45759E99FAD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,14 @@
 		291745B31B4428E700465298 /* SimpleWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleWeatherTests.m; sourceTree = "<group>"; };
 		297AD9741B44347B00749E88 /* WXController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXController.h; sourceTree = "<group>"; };
 		297AD9751B44347B00749E88 /* WXController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXController.m; sourceTree = "<group>"; };
+		29963DA31B48D0AE00EAF4AC /* WXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXManager.h; sourceTree = "<group>"; };
+		29963DA41B48D0AE00EAF4AC /* WXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXManager.m; sourceTree = "<group>"; };
+		29963DA61B48D22E00EAF4AC /* WXCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCondition.h; sourceTree = "<group>"; };
+		29963DA71B48D22E00EAF4AC /* WXCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCondition.m; sourceTree = "<group>"; };
+		29963DA91B48D25000EAF4AC /* WXDailyForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXDailyForecast.h; sourceTree = "<group>"; };
+		29963DAA1B48D25000EAF4AC /* WXDailyForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXDailyForecast.m; sourceTree = "<group>"; };
+		29D3D92E1B4A1ACD00179956 /* WXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXClient.h; sourceTree = "<group>"; };
+		29D3D92F1B4A1ACD00179956 /* WXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXClient.m; sourceTree = "<group>"; };
 		2FADB3A1675FA4C6F26D54AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3740C0FA11E21EFF78F26BBA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +172,14 @@
 		294361FF1B48C4EE00CC9BE3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29D3D92E1B4A1ACD00179956 /* WXClient.h */,
+				29D3D92F1B4A1ACD00179956 /* WXClient.m */,
+				29963DA31B48D0AE00EAF4AC /* WXManager.h */,
+				29963DA41B48D0AE00EAF4AC /* WXManager.m */,
+				29963DA61B48D22E00EAF4AC /* WXCondition.h */,
+				29963DA71B48D22E00EAF4AC /* WXCondition.m */,
+				29963DA91B48D25000EAF4AC /* WXDailyForecast.h */,
+				29963DAA1B48D25000EAF4AC /* WXDailyForecast.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -218,6 +238,7 @@
 					};
 					291745AC1B4428E700465298 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 5F3JGZU2LG;
 						TestTargetID = 291745931B4428E700465298;
 					};
 				};
@@ -299,10 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29963DA51B48D0AE00EAF4AC /* WXManager.m in Sources */,
 				297AD9761B44347B00749E88 /* WXController.m in Sources */,
 				291745A01B4428E700465298 /* ViewController.m in Sources */,
+				29D3D9301B4A1ACD00179956 /* WXClient.m in Sources */,
 				2917459D1B4428E700465298 /* AppDelegate.m in Sources */,
+				29963DAB1B48D25000EAF4AC /* WXDailyForecast.m in Sources */,
 				2917459A1B4428E700465298 /* main.m in Sources */,
+				29963DA81B48D22E00EAF4AC /* WXCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +477,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -463,6 +490,7 @@
 				INFOPLIST_FILE = SimpleWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleWeather.app/SimpleWeather";
 			};
 			name = Debug;
@@ -471,6 +499,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -478,6 +508,7 @@
 				INFOPLIST_FILE = SimpleWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleWeather.app/SimpleWeather";
 			};
 			name = Release;
