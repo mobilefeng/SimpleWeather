@@ -7,6 +7,7 @@
 //
 
 #import "WXController.h"
+#import "WXManager.h"
 
 #import <LBBlurredImage/UIImageView+LBBlurredImage.h>
 
@@ -81,13 +82,6 @@
     header.backgroundColor = [UIColor clearColor];
     self.tableView.tableHeaderView = header;
     
-    UILabel *hiloLabel = [[UILabel alloc] initWithFrame:hiloFrame];
-    hiloLabel.backgroundColor = [UIColor clearColor];
-    hiloLabel.textColor = [UIColor whiteColor];
-    hiloLabel.text = @"0° / 0°";
-    hiloLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:28];
-    [header addSubview:hiloLabel];
-    
     UILabel *temperatureLabel = [[UILabel alloc] initWithFrame:temperatureFrame];
     temperatureLabel.backgroundColor = [UIColor clearColor];
     temperatureLabel.textColor = [UIColor whiteColor];
@@ -95,19 +89,12 @@
     temperatureLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:120];
     [header addSubview:temperatureLabel];
     
-    UIImage *iconImage = [UIImage imageNamed:@"weather-clear"];
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:iconFrame];
-    iconView.contentMode = UIViewContentModeScaleAspectFill;
-    iconView.backgroundColor = [UIColor clearColor];
-    iconView.image = iconImage;
-    [header addSubview:iconView];
-    
-    UILabel *conditionsLabel = [[UILabel alloc] initWithFrame:conditionsFrame];
-    conditionsLabel.backgroundColor = [UIColor clearColor];
-    conditionsLabel.textColor = [UIColor whiteColor];
-    conditionsLabel.text = @"clear";
-    conditionsLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24];
-    [header addSubview:conditionsLabel];
+    UILabel *hiloLabel = [[UILabel alloc] initWithFrame:hiloFrame];
+    hiloLabel.backgroundColor = [UIColor clearColor];
+    hiloLabel.textColor = [UIColor whiteColor];
+    hiloLabel.text = @"0° / 0°";
+    hiloLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:28];
+    [header addSubview:hiloLabel];
     
     UILabel *cityLabel = [[UILabel alloc] initWithFrame:cityFrame];
     cityLabel.backgroundColor = [UIColor clearColor];
@@ -117,6 +104,31 @@
     cityLabel.textAlignment = NSTextAlignmentCenter;
     [header addSubview:cityLabel];
     
+    UILabel *conditionsLabel = [[UILabel alloc] initWithFrame:conditionsFrame];
+    conditionsLabel.backgroundColor = [UIColor clearColor];
+    conditionsLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:24];
+    conditionsLabel.textColor = [UIColor whiteColor];
+    conditionsLabel.text = @"clear";
+    [header addSubview:conditionsLabel];
+    
+    UIImage *iconImage = [UIImage imageNamed:@"weather-clear"];
+    UIImageView *iconView = [[UIImageView alloc] initWithFrame:iconFrame];
+    iconView.contentMode = UIViewContentModeScaleAspectFit;
+    iconView.backgroundColor = [UIColor clearColor];
+    iconView.image = iconImage;
+    [header addSubview:iconView];
+    
+    [[RACObserve([WXManager sharedManager], currentCondition)
+      deliverOn:RACScheduler.mainThreadScheduler]
+     subscribeNext:^(WXCondition *newCondition) {
+             temperatureLabel.text = [NSString stringWithFormat:@"%.0f°",newCondition.temperature.floatValue];
+             conditionsLabel.text = [newCondition.condition capitalizedString];
+             cityLabel.text = [newCondition.locationName capitalizedString];
+             
+             iconView.image = [UIImage imageNamed:[newCondition imageName]];
+     }];
+    
+    [[WXManager sharedManager] findCurrentLocation];
 }
 
 - (void)viewWillLayoutSubviews {

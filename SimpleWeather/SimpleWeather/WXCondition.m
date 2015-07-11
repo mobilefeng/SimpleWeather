@@ -56,7 +56,7 @@
              @"conditionDescription": @"weather.description",
              @"condition": @"weather.main",
              @"icon": @"weather.icon",
-             @"windBearing": @"wind.deg",
+             @"windBear": @"wind.deg",
              @"windSpeed": @"wind.speed",
              };
 }
