@@ -91,7 +91,6 @@
 - (RACSignal *)updateCurrentConditions {
     return [[self.client fetchCurrentConditionsForLocation:self.currentLocation.coordinate] doNext:^(WXCondition *condition) {
         self.currentCondition = condition;
-        NSLog(@"currentCOndition is changed!!!!!!");
     }];
 }
 
