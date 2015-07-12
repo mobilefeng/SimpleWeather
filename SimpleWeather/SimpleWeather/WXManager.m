@@ -48,8 +48,8 @@
            flattenMap:^(CLLocation *newLocation) {
             return [RACSignal merge:@[
                                       [self updateCurrentConditions],
-                                      [self updateDailyForecast],
                                       [self updateHourlyForecast],
+                                      [self updateDailyForecast],
                                       ]];
         }] deliverOn:RACScheduler.mainThreadScheduler]
          subscribeError:^(NSError *error) {

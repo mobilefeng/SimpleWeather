@@ -61,10 +61,27 @@
              };
 }
 
+// Fahrenheit <-> Degrees
++ (NSValueTransformer *)temperatureJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSNumber *Fahrenheit) {
+        return @((Fahrenheit.doubleValue-32.0)*5/9);
+    } reverseBlock:^(NSNumber *Degrees) {
+        return @(Degrees.doubleValue*9/5 + 32.0);
+    }];
+}
+
++ (NSValueTransformer *)tempHighJSONTransformer {
+    return [self temperatureJSONTransformer];
+}
+
++ (NSValueTransformer *)tempLowJSONTransformer {
+    return [self temperatureJSONTransformer];
+}
+
 // NSString <-> NSDate
 + (NSValueTransformer *)dateJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
-        return [NSDate dateWithTimeIntervalSince1970:str.floatValue];
+        return [NSDate dateWithTimeIntervalSince1970:str.doubleValue];
     } reverseBlock:^(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
